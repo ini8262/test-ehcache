@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+<!--     <diskStore path="java.io.tmpdir"/> -->
+    <diskStore path="./temp/ehcache"/>
+    
+    <!-- http://javacan.tistory.com/entry/133 -->
+
+    <defaultCache
+    		
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            />
+            
+
+            
+    
+    <cache name="simpleBeanCache"
+            eternal="false"
+            diskPersistent="true"
+            diskExpiryThreadIntervalSeconds="1000"
+            maxEntriesLocalHeap="10000"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU" />
+            
+     <!-- 
+     	LRU (Least Recently Used): 사용이 가장 적었던 것부터 제거한다.
+		FIFO: 먼저 입력된 것부터 제거한다.
+		LFU (Least frequently used) 사용량이 적은 것부터 제거한다. 
+	-->
+
+
+
+</ehcache>
